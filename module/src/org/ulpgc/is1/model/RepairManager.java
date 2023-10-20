@@ -39,3 +39,4 @@ public class RepairManager {
     public List<Vehicle> getVehicles() {
         return vehicles;
     }
+}
