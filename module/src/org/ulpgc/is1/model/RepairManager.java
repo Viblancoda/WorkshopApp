@@ -1,14 +1,12 @@
 package org.ulpgc.is1.model;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
 
 
 public class RepairManager {
     private List<Mechanic> mechanics;
     private ArrayList<Vehicle> vehicles;
     private List<SparePart> spareParts;
-    private List<Repair> repairs;
 
 
 
@@ -16,7 +14,6 @@ public class RepairManager {
         this.mechanics = new ArrayList<>();
         this.vehicles = new ArrayList<>();
         this.spareParts = new ArrayList<>();
-        this.repairs = new ArrayList<>();
     }
 
     public void addMechanic(String name, String surname) {
@@ -24,8 +21,8 @@ public class RepairManager {
         mechanics.add(mechanic);
     }
 
-    public void addVehicle(String make, String model, Plate plate, Customer customer) {
-        Vehicle vehicle = new Vehicle(make, model, plate, customer);
+    public void addVehicle(String make, String model, Plate plate) {
+        Vehicle vehicle = new Vehicle(make, model, plate);
         vehicles.add(vehicle);
     }
     public void addSparePart(String name, int price){
@@ -33,6 +30,7 @@ public class RepairManager {
         spareParts.add(sparePart);
 
     }
+
 
     public void repair(Vehicle vehicle) {
         if (!vehicles.contains(vehicle)) {
@@ -52,40 +50,4 @@ public class RepairManager {
     }
 
     public List<SparePart> getSpareParts() { return spareParts; }
-
-    public List<Repair> getRepairs() { return repairs; }
-
-    public void addRepairs(int NEXT_ID, Date date, String description, int effort) {
-        Repair repair = new Repair(NEXT_ID, uniqueID(), date, description, effort);
-        repairs.add(repair);
-    }
-    private int repairIdCounter = 1;
-    private int uniqueID(){
-        return repairIdCounter++;
-    }
-    public void formalizePayment(Repair repair, int paymentAmount) {
-        if (repairs.contains(repair)) {
-            Date paymentDate = new Date();
-            Payment payment = new Payment(paymentDate, paymentAmount);
-
-            repair.getPayments().add(payment);
-
-            System.out.println("Pago formalizado por ID:" + repair.getId() + ". Total: " + paymentAmount + "€");
-        } else {
-            System.out.println("No se pudo formalizar el pago. No está registrado");
-        }
-    }
-    public void deleteVehicle(Vehicle vehicle) {
-        if (vehicles.contains(vehicle)) {
-            vehicles.remove(vehicle);
-            System.out.println("Vehículo eliminado: " + vehicle.getMake() + " " + vehicle.getModel());
-        } else {
-            System.out.println("No se pudo encontrar vehículo para eliminar");
-        }
-    }
-    public int countVehicles() {
-        return vehicles.size();
-    }
-
-
 }
