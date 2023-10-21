@@ -16,4 +16,12 @@ public class Customer {
     public Phone getPhone() {
         return phone;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+    }
 }

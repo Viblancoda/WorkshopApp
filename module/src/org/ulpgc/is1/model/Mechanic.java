@@ -24,4 +24,5 @@ public class Mechanic {
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
 }
