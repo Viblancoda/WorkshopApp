@@ -2,11 +2,11 @@ package org.ulpgc.is1.model;
 
 public class Customer {
     String name;
-    Phone pone;
+    Phone phone;
 
-    public Customer(String name, Phone pone) {
+    public Customer(String name, Phone phone) {
         this.name = name;
-        this.pone = pone;
+        this.phone = phone;
     }
 
     public String getName() {
@@ -17,11 +17,11 @@ public class Customer {
         this.name = name;
     }
 
-    public Phone getPone() {
-        return pone;
+    public Phone getPhone() {
+        return phone;
     }
 
-    public void setPone(Phone pone) {
-        this.pone = pone;
+    public void setPhone(Phone phone) {
+        this.phone = phone;
     }
 }

@@ -28,7 +28,6 @@ public class RepairManager {
             return;
         }
 
-        // Lógica para reparar el vehículo aquí.
         System.out.println("Reparando el vehículo: " + vehicle.getMake() + " " + vehicle.getModel());
     }
 
