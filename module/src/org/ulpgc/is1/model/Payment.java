@@ -18,4 +18,12 @@ public class Payment {
     public int getAmount() {
         return amount;
     }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }

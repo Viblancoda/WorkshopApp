@@ -50,4 +50,5 @@ public class RepairManager {
     }
 
     public List<SparePart> getSpareParts() { return spareParts; }
+
 }

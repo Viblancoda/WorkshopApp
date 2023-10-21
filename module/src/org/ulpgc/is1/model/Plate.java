@@ -17,4 +17,5 @@ public class Plate {
     public void setNumber(String number) {
         this.number = number;
     }
+
 }

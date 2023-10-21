@@ -47,4 +47,24 @@ public class Repair {
     public int getEffort() {
         return effort;
     }
+
+    public void setNEXT_ID(int NEXT_ID) {
+        this.NEXT_ID = NEXT_ID;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setEffort(int effort) {
+        this.effort = effort;
+    }
+
+    public void setPayments(List<Payment> payments) {
+        this.payments = payments;
+    }
 }

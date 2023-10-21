@@ -22,4 +22,16 @@ public class Vehicle {
     public Plate getPlate() {
         return plate;
     }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setPlate(Plate plate) {
+        this.plate = plate;
+    }
 }
