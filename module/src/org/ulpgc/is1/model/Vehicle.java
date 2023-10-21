@@ -15,23 +15,11 @@ public class Vehicle {
         return make;
     }
 
-    public void setMake(String make) {
-        this.make = make;
-    }
-
     public String getModel() {
         return model;
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
-
     public Plate getPlate() {
         return plate;
-    }
-
-    public void setPlate(Plate plate) {
-        this.plate = plate;
     }
 }

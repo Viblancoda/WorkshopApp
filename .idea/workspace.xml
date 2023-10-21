@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad40fabe-899b-4d31-8873-488a890c8c5b" name="Changes" comment="added constructors, getters and setters">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/src/org/ulpgc/is1/model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/org/ulpgc/is1/model/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/src/org/ulpgc/is1/model/Repair.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/org/ulpgc/is1/model/Repair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/src/org/ulpgc/is1/model/RepairManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/org/ulpgc/is1/model/RepairManager.java" afterDir="false" />
-    </list>
+    <list default="true" id="ad40fabe-899b-4d31-8873-488a890c8c5b" name="Changes" comment="added Aggregations" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +78,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697830612891</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added Aggregations">
+      <option name="closed" value="true" />
+      <created>1697893863096</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697893863096</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -101,7 +104,8 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="added classes" />
     <MESSAGE value="added constructors, getters and setters" />
-    <option name="LAST_COMMIT_MESSAGE" value="added constructors, getters and setters" />
+    <MESSAGE value="added Aggregations" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Aggregations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

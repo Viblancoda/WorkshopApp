@@ -13,15 +13,7 @@ public class Customer {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Phone getPhone() {
         return phone;
-    }
-
-    public void setPhone(Phone phone) {
-        this.phone = phone;
     }
 }
