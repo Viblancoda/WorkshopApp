@@ -7,6 +7,7 @@ public class RepairManager {
     private List<Mechanic> mechanics;
     private ArrayList<Vehicle> vehicles;
     private List<SparePart> spareParts;
+    private List<Repair> repairs;
 
 
 
@@ -14,6 +15,7 @@ public class RepairManager {
         this.mechanics = new ArrayList<>();
         this.vehicles = new ArrayList<>();
         this.spareParts = new ArrayList<>();
+        this.repairs = new ArrayList<>();
     }
 
     public void addMechanic(String name, String surname) {
@@ -30,7 +32,9 @@ public class RepairManager {
         spareParts.add(sparePart);
 
     }
-
+    public void addRepair(Repair repair) {
+        repairs.add(repair);
+    }
 
     public void repair(Vehicle vehicle) {
         if (!vehicles.contains(vehicle)) {
@@ -50,4 +54,24 @@ public class RepairManager {
     }
 
     public List<SparePart> getSpareParts() { return spareParts; }
+
+    public void setMechanics(List<Mechanic> mechanics) {
+        this.mechanics = mechanics;
+    }
+
+    public void setVehicles(ArrayList<Vehicle> vehicles) {
+        this.vehicles = vehicles;
+    }
+
+    public void setSpareParts(List<SparePart> spareParts) {
+        this.spareParts = spareParts;
+    }
+
+    public List<Repair> getRepairs() {
+        return repairs;
+    }
+
+    public void setRepairs(List<Repair> repairs) {
+        this.repairs = repairs;
+    }
 }
