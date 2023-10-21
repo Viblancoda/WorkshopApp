@@ -1,11 +1,20 @@
 package org.ulpgc.is1.model;
 import java.util.Date;
+import java.util.List;
+
 public class Repair {
     int NEXT_ID = 0;
     final int id;
     Date date;
     String description;
     int effort;
+
+    private List<Payment> payments;
+
+    void addPayment(Date date, int amount){
+        Payment payment = new Payment(date, amount);
+        payments.add(payment);
+    }
 
     private double price(){
         return 0;
@@ -23,10 +32,6 @@ public class Repair {
         return NEXT_ID;
     }
 
-    public void setNEXT_ID(int NEXT_ID) {
-        this.NEXT_ID = NEXT_ID;
-    }
-
     public int getId() {
         return id;
     }
@@ -35,23 +40,11 @@ public class Repair {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public int getEffort() {
         return effort;
-    }
-
-    public void setEffort(int effort) {
-        this.effort = effort;
     }
 }
