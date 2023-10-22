@@ -14,6 +14,16 @@ public class Repair {
     private List<Item> items;
     private BreakdownTypes breakdownType;
 
+    public Repair(int NEXT_ID, int id, Date date, String description, int effort) {
+        this.NEXT_ID = NEXT_ID;
+        this.id = id;
+        this.date = date;
+        this.description = description;
+        this.effort = effort;
+        this.items = new ArrayList<>();
+        this.payments = new ArrayList<>();
+    }
+
     void addPayment(Date date, int amount){
         Payment payment = new Payment(date, amount);
         payments.add(payment);
@@ -25,16 +35,6 @@ public class Repair {
             totalPrice += item.getQuantity() * item.getSparePart().getPrice();
         }
         return totalPrice;
-    }
-
-    public Repair(int NEXT_ID, int id, Date date, String description, int effort) {
-        this.NEXT_ID = NEXT_ID;
-        this.id = id;
-        this.date = date;
-        this.description = description;
-        this.effort = effort;
-        this.items = new ArrayList<>();
-        this.payments = new ArrayList<>();
     }
 
     public int getNEXT_ID() {

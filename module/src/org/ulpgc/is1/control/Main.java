@@ -62,7 +62,7 @@ public class Main {
         Repair repair = new Repair(1, 3, new Date(), "Avería del vehículo", 3);
         repair.setNEXT_ID(repairManager.getRepairs().size() + 1);
 
-        // Agregar dos piezas al vehículo
+        // Piezas modificadas
         Item item1 = new Item(2);
         Item item2 = new Item(1);
         item1.setSparePart(repairManager.getSpareParts().get(0));
@@ -70,7 +70,7 @@ public class Main {
         repair.getItems().add(item1);
         repair.getItems().add(item2);
 
-        // Configurar el tipo de reparación
+        // Tipo de reparación
         repair.setBreakdownType(BreakdownTypes.mechanical);
 
         // Registrar la reparación
@@ -81,7 +81,7 @@ public class Main {
         List<Repair> repairs = repairManager.getRepairs();
         if (!repairs.isEmpty()) {
             Repair lastRepair = repairs.get(repairs.size() - 1);
-            int paymentAmount = item1.getQuantity()*item1.getSparePart().getPrice()+item2.getQuantity()*item2.getSparePart().getPrice();
+            int paymentAmount = repair.price();
 
             repairManager.formalizePayment(lastRepair, paymentAmount);
         }
@@ -108,6 +108,6 @@ public class Main {
             System.out.println("Pieza: " + item.getSparePart().getName());
             System.out.println("Precio: " + item.getSparePart().getPrice() +"€");
         }
-        System.out.println("Precio total: " + (item1.getSparePart().getPrice()*item1.getQuantity()+ item2.getQuantity()*item2.getSparePart().getPrice()) + "€");
+        System.out.println("Precio total: " + repair.price() + "€");
     }
 }

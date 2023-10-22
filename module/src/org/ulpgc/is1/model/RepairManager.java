@@ -36,13 +36,13 @@ public class RepairManager {
         repairs.add(repair);
     }
 
-    public void repair(Vehicle vehicle) {
-        if (!vehicles.contains(vehicle)) {
-            System.out.println("No se puede reparar el vehículo. El vehículo no está registrado.");
+    public void repair(Vehicle vehicle, Mechanic mechanic) {
+        if (!vehicles.contains(vehicle) || !mechanics.contains(mechanic)) {
+            System.out.println("No se puede hacer la reparación. El vehículo o el mecánico no están registrados.");
             return;
         }
 
-        System.out.println("Reparando el vehículo: " + vehicle.getMake() + " " + vehicle.getModel());
+        System.out.println("Reparando el vehículo: " + vehicle.getMake() + " " + vehicle.getModel() + " por el mecánico: " + mechanic.getName() + " " + mechanic.getSurname());
     }
 
     public List<Mechanic> getMechanics() {
@@ -80,7 +80,7 @@ public class RepairManager {
 
             repair.getPayments().add(payment);
 
-            System.out.println("Pago formalizado por: " + repair.getId() + ". Precio: " + paymentAmount + "€");
+            System.out.println("Pago formalizado por ID: " + repair.getId() + ". Precio: " + paymentAmount + "€");
         } else {
             System.out.println("No se encontró el pago");
         }
