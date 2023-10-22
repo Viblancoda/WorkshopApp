@@ -81,7 +81,7 @@ public class Main {
         List<Repair> repairs = repairManager.getRepairs();
         if (!repairs.isEmpty()) {
             Repair lastRepair = repairs.get(repairs.size() - 1);
-            int paymentAmount = item1.getSparePart().getPrice()*item1.getQuantity()+ item2.getQuantity()*item2.getSparePart().getPrice();
+            int paymentAmount = item1.getQuantity()*item1.getSparePart().getPrice()+item2.getQuantity()*item2.getSparePart().getPrice();
 
             repairManager.formalizePayment(lastRepair, paymentAmount);
         }
@@ -108,6 +108,6 @@ public class Main {
             System.out.println("Pieza: " + item.getSparePart().getName());
             System.out.println("Precio: " + item.getSparePart().getPrice() +"€");
         }
-        System.out.println("Precio total: " + (item1.getSparePart().getPrice()*item1.getQuantity()+ item2.getQuantity()*item2.getSparePart().getPrice())+"€");
+        System.out.println("Precio total: " + (item1.getSparePart().getPrice()*item1.getQuantity()+ item2.getQuantity()*item2.getSparePart().getPrice()) + "€");
     }
 }

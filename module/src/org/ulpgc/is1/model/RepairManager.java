@@ -52,7 +52,6 @@ public class RepairManager {
     public List<Vehicle> getVehicles() {
         return vehicles;
     }
-
     public List<SparePart> getSpareParts() { return spareParts; }
 
     public void setMechanics(List<Mechanic> mechanics) {

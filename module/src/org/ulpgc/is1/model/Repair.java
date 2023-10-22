@@ -4,14 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 public class Repair {
-    int NEXT_ID = 0;
+    static int NEXT_ID = 0;
     final int id;
     Date date;
     String description;
     int effort;
 
     private List<Payment> payments;
-
     private List<Item> items;
     private BreakdownTypes breakdownType;
 
@@ -20,8 +19,12 @@ public class Repair {
         payments.add(payment);
     }
 
-    private double price(){
-        return 0;
+    public int price() {
+        int totalPrice = 0;
+        for (Item item : items) {
+            totalPrice += item.getQuantity() * item.getSparePart().getPrice();
+        }
+        return totalPrice;
     }
 
     public Repair(int NEXT_ID, int id, Date date, String description, int effort) {
