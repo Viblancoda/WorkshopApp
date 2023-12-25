@@ -12,7 +12,7 @@ public class Phone {
 
     }
     public boolean isValid(String number) {
-        return number != null && number.matches("\\d{9}+");
+        return number != null && number.matches("\\d{9}");
     }
 
     public String getPhone() {

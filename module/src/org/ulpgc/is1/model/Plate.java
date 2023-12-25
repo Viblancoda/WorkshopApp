@@ -2,20 +2,21 @@ package org.ulpgc.is1.model;
 
 public class Plate {
     private String number;
-    private boolean isValid(){
-        return false;
+    public boolean isValid(String number) {
+        return number != null && number.matches("^[0-9]{1,4}(?!.*(LL|CH))[BCDFGHJKLMNPRSTVWXYZ]{3}");
     }
 
     public Plate(String number) {
-        this.number = number;
+        if (this.isValid(number)) {
+            this.number = number;
+        } else {
+            this.number = "Matrícula inválida";
+        }
+
     }
 
-    public String getNumber() {
+    public String getPlate() {
         return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
     }
 
 }

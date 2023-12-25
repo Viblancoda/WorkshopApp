@@ -1,8 +1,12 @@
 package org.ulpgc.is1.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer {
     private String name;
     private Phone phone;
+
 
     public Customer(String name, Phone phone) {
         this.name = name;

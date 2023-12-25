@@ -1,15 +1,15 @@
 package org.ulpgc.is1.model;
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
 
 public class RepairManager {
-    private List<Mechanic> mechanics;
-    private ArrayList<Vehicle> vehicles;
-    private List<SparePart> spareParts;
-    private List<Repair> repairs;
-
-
+    private final List<Mechanic> mechanics;
+    private final List<Vehicle> vehicles;
+    private final List<SparePart> spareParts;
+    private final List<Repair> repairs;
 
     public RepairManager() {
         this.mechanics = new ArrayList<>();
@@ -27,22 +27,14 @@ public class RepairManager {
         Vehicle vehicle = new Vehicle(make, model, plate, customer);
         vehicles.add(vehicle);
     }
-    public void addSparePart(String name, int price){
+
+    public void addSparePart(String name, int price) {
         SparePart sparePart = new SparePart(name, price);
         spareParts.add(sparePart);
-
     }
+
     public void addRepair(Repair repair) {
         repairs.add(repair);
-    }
-
-    public void repair(Vehicle vehicle, Mechanic mechanic) {
-        if (!vehicles.contains(vehicle) || !mechanics.contains(mechanic)) {
-            System.out.println("No se puede hacer la reparación. El vehículo o el mecánico no están registrados.");
-            return;
-        }
-
-        System.out.println("Reparando el vehículo: " + vehicle.getMake() + " " + vehicle.getModel() + " por el mecánico: " + mechanic.getName() + " " + mechanic.getSurname());
     }
 
     public List<Mechanic> getMechanics() {
@@ -52,48 +44,46 @@ public class RepairManager {
     public List<Vehicle> getVehicles() {
         return vehicles;
     }
-    public List<SparePart> getSpareParts() { return spareParts; }
 
-    public void setMechanics(List<Mechanic> mechanics) {
-        this.mechanics = mechanics;
-    }
-
-    public void setVehicles(ArrayList<Vehicle> vehicles) {
-        this.vehicles = vehicles;
-    }
-
-    public void setSpareParts(List<SparePart> spareParts) {
-        this.spareParts = spareParts;
+    public List<SparePart> getSpareParts() {
+        return spareParts;
     }
 
     public List<Repair> getRepairs() {
         return repairs;
     }
-
-    public void setRepairs(List<Repair> repairs) {
-        this.repairs = repairs;
+    public Repair getRepair(int i) {
+        return (Repair)this.repairs.get(i);
     }
+
     public void formalizePayment(Repair repair, int paymentAmount) {
         if (repairs.contains(repair)) {
-            Date paymentDate = new Date();
-            Payment payment = new Payment(paymentDate, paymentAmount);
-
-            repair.getPayments().add(payment);
-
-            System.out.println("Pago formalizado por ID: " + repair.getId() + ". Precio: " + paymentAmount + "€");
+            Payment payment = new Payment(Date.from(Instant.now()), paymentAmount);
+            repair.addPayment(payment);
+            System.out.println("Pago formalizado por ID:"  + ". Precio: " + paymentAmount + "€");
         } else {
-            System.out.println("No se encontró el pago");
+            System.out.println("No se encontró la reparación para realizar el pago.");
         }
     }
+
     public void deleteVehicle(Vehicle vehicle) {
         if (vehicles.contains(vehicle)) {
             vehicles.remove(vehicle);
             System.out.println("Vehículo eliminado: " + vehicle.getMake() + " " + vehicle.getModel());
         } else {
-            System.out.println("No se encontró vehículo para eliminar.");
+            System.out.println("No se encontró el vehículo para eliminar.");
         }
     }
+
     public int countVehicles() {
         return vehicles.size();
     }
-}
+
+    public int calculateRepairCost(Repair repair) {
+        int totalCost = 0;
+        for (Item item : repair.getItems()) {
+            totalCost += item.getSparePart().getPrice() * item.getQuantity();
+        }
+        return totalCost;
+    }
+}}

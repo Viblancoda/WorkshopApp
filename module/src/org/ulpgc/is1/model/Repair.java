@@ -12,18 +12,21 @@ public class Repair {
     private List<Payment> payments;
     private List<Item> items;
     private BreakdownTypes breakdownType;
+    private Vehicle vehicle;
+    private Mechanic mechanic;
 
-    public Repair(Date date, String description, int effort) {
+    public Repair(Date date, String description, int effort, Vehicle vehicle, Mechanic mechanic) {
         this.id = NEXT_ID;
         this.date = date;
         this.description = description;
         this.effort = effort;
         this.items = new ArrayList<>();
         this.payments = new ArrayList<>();
+        this.mechanic = mechanic;
+        this.vehicle = vehicle;
     }
 
-    void addPayment(Date date, int amount){
-        Payment payment = new Payment(date, amount);
+    void addPayment(Payment payment){
         this.payments.add(payment);
     }
     void addItem(int quantity, SparePart sparePart){
@@ -77,5 +80,21 @@ public class Repair {
 
     public void setBreakdownType(BreakdownTypes breakdownType) {
         this.breakdownType = breakdownType;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public Mechanic getMechanic() {
+        return mechanic;
+    }
+
+    public void setMechanic(Mechanic mechanic) {
+        this.mechanic = mechanic;
     }
 }
