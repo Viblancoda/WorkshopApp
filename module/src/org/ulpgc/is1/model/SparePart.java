@@ -1,8 +1,8 @@
 package org.ulpgc.is1.model;
 
 public class SparePart {
-    String name;
-    int price;
+    private String name;
+    private int price;
 
     public SparePart(String name, int price) {
         this.name = name;

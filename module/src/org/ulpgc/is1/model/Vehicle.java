@@ -1,10 +1,10 @@
 package org.ulpgc.is1.model;
 
 public class Vehicle {
-    String make;
-    String model;
-    Plate plate;
-    Customer customer;
+    private String make;
+    private String model;
+    private Plate plate;
+    private Customer customer;
 
     public Vehicle(String make, String model, Plate plate, Customer customer) {
         this.make = make;

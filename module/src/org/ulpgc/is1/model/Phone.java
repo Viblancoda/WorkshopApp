@@ -1,26 +1,21 @@
 package org.ulpgc.is1.model;
 
 public class Phone {
-    String number;
-
-    public boolean isValid(){
-        if (number.matches("\\d{9}")) {
-            return true;
-        } else {
-            number = "XXXX";
-            return false;
-        }
-    }
+    private String number;
 
     public Phone(String number) {
-        this.number = number;
+        if (this.isValid(number)) {
+            this.number = number;
+        } else {
+            this.number = "XXXX";
+        }
+
+    }
+    public boolean isValid(String number) {
+        return number != null && number.matches("\\d{9}+");
     }
 
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
+    public String getPhone() {
+        return this.number;
     }
 }

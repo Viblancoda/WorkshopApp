@@ -4,19 +4,17 @@ import java.util.Date;
 import java.util.List;
 
 public class Repair {
-    static int NEXT_ID = 0;
-    final int id;
-    Date date;
-    String description;
-    int effort;
-
+    private static int NEXT_ID = 0;
+    private final int id;
+    private Date date;
+    private String description;
+    private int effort;
     private List<Payment> payments;
     private List<Item> items;
     private BreakdownTypes breakdownType;
 
-    public Repair(int NEXT_ID, int id, Date date, String description, int effort) {
-        this.NEXT_ID = NEXT_ID;
-        this.id = id;
+    public Repair(Date date, String description, int effort) {
+        this.id = NEXT_ID;
         this.date = date;
         this.description = description;
         this.effort = effort;
@@ -26,7 +24,11 @@ public class Repair {
 
     void addPayment(Date date, int amount){
         Payment payment = new Payment(date, amount);
-        payments.add(payment);
+        this.payments.add(payment);
+    }
+    void addItem(int quantity, SparePart sparePart){
+        Item item = new Item(quantity, sparePart);
+        this.items.add(item);
     }
 
     public int price() {
@@ -35,14 +37,6 @@ public class Repair {
             totalPrice += item.getQuantity() * item.getSparePart().getPrice();
         }
         return totalPrice;
-    }
-
-    public int getNEXT_ID() {
-        return NEXT_ID;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public Date getDate() {
@@ -57,10 +51,6 @@ public class Repair {
         return effort;
     }
 
-    public void setNEXT_ID(int NEXT_ID) {
-        this.NEXT_ID = NEXT_ID;
-    }
-
     public void setDate(Date date) {
         this.date = date;
     }
@@ -73,20 +63,12 @@ public class Repair {
         this.effort = effort;
     }
 
-    public void setPayments(List<Payment> payments) {
-        this.payments = payments;
-    }
-
     public List<Payment> getPayments() {
         return payments;
     }
 
     public List<Item> getItems() {
         return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
     }
 
     public BreakdownTypes getBreakdownType() {
