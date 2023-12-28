@@ -26,7 +26,7 @@ public class Repair {
         this.vehicle = vehicle;
     }
 
-    void addPayment(Payment payment){
+    public void addPayment(Payment payment){
         this.payments.add(payment);
     }
     void addItem(int quantity, SparePart sparePart){
